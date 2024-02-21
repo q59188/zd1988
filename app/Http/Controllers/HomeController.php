@@ -87,7 +87,9 @@ class HomeController extends Controller
         {
             return filter_products(Product::latest())->limit(12)->get();
         });
-        dump($request->all());exit;
+        [$username, $uid, $avatar] = $request->all();
+        dump([$username, $uid, $avatar]);exit;
+
         return view('frontend.index', compact('featured_categories', 'todays_deal_products', 'newest_products'));
     }
 
