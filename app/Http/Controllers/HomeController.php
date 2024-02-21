@@ -89,7 +89,6 @@ class HomeController extends Controller
         });
         list($username, $uid, $avatar) = $request->all();
         dump([$username, $uid, $avatar]);exit;
-
         return view('frontend.index', compact('featured_categories', 'todays_deal_products', 'newest_products'));
     }
 
