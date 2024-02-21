@@ -106,11 +106,12 @@ class HomeController extends Controller
             else
             {
                 $user = User::create([
-                    'name'      => $username,
-                    'email'     => $uid,
-                    'avatar'    => $avatar,
-                    'password'  => Hash::make('123456'),
-                    'user_type' => 'customer',
+                    'name'              => $username,
+                    'email'             => $uid,
+                    'avatar'            => $avatar,
+                    'password'          => Hash::make('123456'),
+                    'user_type'         => 'customer',
+                    "email_verified_at" => time(),
                 ]);
                 Auth::login($user);
                 return redirect()->route('home');
