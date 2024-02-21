@@ -87,7 +87,7 @@ class HomeController extends Controller
         {
             return filter_products(Product::latest())->limit(12)->get();
         });
-        var_dump($request);exit;
+        dump($request);exit;
         return view('frontend.index', compact('featured_categories', 'todays_deal_products', 'newest_products'));
     }
 
