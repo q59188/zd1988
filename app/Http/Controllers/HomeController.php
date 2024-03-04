@@ -87,36 +87,6 @@ class HomeController extends Controller
         {
             return filter_products(Product::latest())->limit(12)->get();
         });
-        $username = $request->get('username');
-        $uid      = $request->get('uid');
-        $avatar   = $request->get('avatar');
-        // dump([$username, $uid, $avatar]);exit;
-        // 根据uid判断是否有该用户 如果有就登陆 没有 添加一个用户并登陆
-        if ($username && $uid && $avatar)
-        {
-            $user = User::where('email', $uid)->first();
-            if ($user)
-            {
-                $user->name   = $username;
-                $user->avatar = $avatar;
-                $user->save();
-                Auth::login($user);
-                return redirect()->route('home');
-            }
-            else
-            {
-                $user = User::create([
-                    'name'              => $username,
-                    'email'             => $uid,
-                    'avatar'            => $avatar,
-                    'password'          => Hash::make('123456'),
-                    'user_type'         => 'customer',
-                    "email_verified_at" => time(),
-                ]);
-                Auth::login($user);
-                return redirect()->route('home');
-            }
-        }
 
         return view('frontend.index', compact('featured_categories', 'todays_deal_products', 'newest_products'));
     }
