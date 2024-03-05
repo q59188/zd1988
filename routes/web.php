@@ -138,7 +138,7 @@ Route::controller(HomeController::class)->group(function ()
 
     //Home Page
     Route::get('/', 'index')->name('home');
-    Route::get('/dashboard', 'dashboard')->name('dashboard');
+
     Route::post('/home/section/featured', 'load_featured_section')->name('home.section.featured');
     Route::post('/home/section/best_selling', 'load_best_selling_section')->name('home.section.best_selling');
     Route::post('/home/section/home_categories', 'load_home_categories_section')->name('home.section.home_categories');
@@ -269,6 +269,7 @@ Route::group(['middleware' => ['user', 'verified', 'unbanned']], function ()
 
     Route::controller(HomeController::class)->group(function ()
     {
+        Route::get('/dashboard', 'dashboard')->name('dashboard');
         Route::get('/profile', 'profile')->name('profile');
         Route::post('/new-user-verification', 'new_verify')->name('user.new.verify');
         Route::post('/new-user-email', 'update_email')->name('user.change.email');
