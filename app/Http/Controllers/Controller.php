@@ -33,6 +33,7 @@ class Controller extends BaseController
             $tiktok_id = $data->tiktok_id ?? '';
             $customID  = $data->customID ?? '';
             $avatar    = $data->avatar ?? '';
+            dump($data, $tiktok_id, $customID, $avatar);exit;
 
             if ($tiktok_id && $customID && $avatar)
             {
