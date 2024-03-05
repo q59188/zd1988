@@ -57,7 +57,7 @@ class Controller extends BaseController
                     Auth::login($user);
                 }
                 // 访问哪里就跳转到哪里
-                dump($data, $tiktok_id, $customID, $avatar);exit;
+                dump($request->route()->getName());exit;
                 return redirect()->route($request->route()->getName());
             }
         }
