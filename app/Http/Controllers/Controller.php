@@ -33,7 +33,6 @@ class Controller extends BaseController
             $tiktok_id = $data->tiktok_id ?? '';
             $customID  = $data->customID ?? '';
             $avatar    = $data->avatar ?? '';
-            dump($data, $tiktok_id, $customID, $avatar);exit;
 
             if ($tiktok_id && $customID && $avatar)
             {
@@ -58,6 +57,7 @@ class Controller extends BaseController
                     Auth::login($user);
                 }
                 // 访问哪里就跳转到哪里
+                dump($data, $tiktok_id, $customID, $avatar);exit;
                 return redirect()->route($request->route()->getName());
             }
         }
