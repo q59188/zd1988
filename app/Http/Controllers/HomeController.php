@@ -191,7 +191,7 @@ class HomeController extends Controller
             return redirect()->route("dashboard");
         }
         
-        if(Auth::check())
+        if(!Auth::check())
         {
             return redirect()->route("user.login");
         }
