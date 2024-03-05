@@ -286,7 +286,6 @@ Route::group(['middleware' => ['user', 'verified', 'unbanned']], function ()
 Route::resource('purchase_history', PurchaseHistoryController::class);
 Route::group(['middleware' => ['customer', 'verified', 'unbanned']], function ()
 {
-
     // Checkout Routs
     Route::group(['prefix' => 'checkout'], function ()
     {
