@@ -283,7 +283,7 @@ Route::group(['middleware' => ['user', 'verified', 'unbanned']], function ()
     Route::get('/all-notifications', [NotificationController::class, 'index'])->name('all-notifications');
 
 });
-
+Route::resource('purchase_history', PurchaseHistoryController::class);
 Route::group(['middleware' => ['customer', 'verified', 'unbanned']], function ()
 {
 
@@ -309,7 +309,7 @@ Route::group(['middleware' => ['customer', 'verified', 'unbanned']], function ()
     });
 
     // Purchase History
-    Route::resource('purchase_history', PurchaseHistoryController::class);
+    
     Route::controller(PurchaseHistoryController::class)->group(function ()
     {
         Route::get('/purchase_history/details/{id}', 'purchase_history_details')->name('purchase_history.details');
