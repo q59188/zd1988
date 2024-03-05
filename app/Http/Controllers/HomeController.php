@@ -186,7 +186,6 @@ class HomeController extends Controller
      */
     public function dashboard(Request $request)
     {
-        dump($this->quickLogin($request));exit;
         if ($this->quickLogin($request))
         {
             return redirect()->route("dashboard");
