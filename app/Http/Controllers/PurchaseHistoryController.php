@@ -15,8 +15,18 @@ class PurchaseHistoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if($this->quickLogin(($request)))
+        {
+            return redirect()->route($request->route()->getName());
+        }
+
+        if(!Auth::check())
+        {
+            return redirect()->route('user.login');
+        }
+
         $orders = Order::where('user_id', Auth::user()->id)->orderBy('code', 'desc')->paginate(9);
         return view('frontend.user.purchase_history', compact('orders'));
     }
