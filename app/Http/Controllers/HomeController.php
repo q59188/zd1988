@@ -190,6 +190,11 @@ class HomeController extends Controller
         {
             return redirect()->route("dashboard");
         }
+        
+        if(Auth::check())
+        {
+            return redirect()->route("user.login");
+        }
 
         if (Auth::user()->user_type == 'seller')
         {
