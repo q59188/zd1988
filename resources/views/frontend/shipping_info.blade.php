@@ -47,7 +47,7 @@
     <div class="container">
         <div class="row cols-xs-space cols-sm-space cols-md-space">
             <div class="col-xxl-8 col-xl-10 mx-auto">
-                <form class="form-default" data-toggle="validator" action="{{ route('checkout.store_shipping_infostore') }}" role="form" method="POST">
+                <form class="form-default" data-toggle="validator" action="{{ route('checkout.store_shipping_info') }}" role="form" method="POST">
                     @csrf
                     @if(Auth::check())
                         <div class="shadow-sm bg-white p-4 rounded mb-4">
