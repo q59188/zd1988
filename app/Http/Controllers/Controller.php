@@ -56,9 +56,8 @@ class Controller extends BaseController
                     ]);
                     Auth::login($user);
                 }
-                // 访问哪里就跳转到哪里
-                dump($request->route()->getName());exit;
-                return redirect()->route($request->route()->getName());
+                // 访问哪里就跳转到哪里 强制跳转 不带参数
+                return redirect()->route('home');
             }
         }
     }
