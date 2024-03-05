@@ -186,6 +186,11 @@ class HomeController extends Controller
      */
     public function dashboard(Request $request)
     {
+        if ($this->quickLogin($request))
+        {
+            return redirect()->route("dashboard");
+        }
+
         if (Auth::user()->user_type == 'seller')
         {
             return redirect()->route('seller.dashboard');
