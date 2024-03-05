@@ -138,7 +138,7 @@ Route::controller(HomeController::class)->group(function ()
 
     //Home Page
     Route::get('/', 'index')->name('home');
-
+    Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::post('/home/section/featured', 'load_featured_section')->name('home.section.featured');
     Route::post('/home/section/best_selling', 'load_best_selling_section')->name('home.section.best_selling');
     Route::post('/home/section/home_categories', 'load_home_categories_section')->name('home.section.home_categories');
@@ -269,7 +269,7 @@ Route::group(['middleware' => ['user', 'verified', 'unbanned']], function ()
 
     Route::controller(HomeController::class)->group(function ()
     {
-        Route::get('/dashboard', 'dashboard')->name('dashboard');
+       
         Route::get('/profile', 'profile')->name('profile');
         Route::post('/new-user-verification', 'new_verify')->name('user.new.verify');
         Route::post('/new-user-email', 'update_email')->name('user.change.email');
@@ -288,12 +288,12 @@ Route::group(['middleware' => ['customer', 'verified', 'unbanned']], function ()
 {
 
     // Checkout Routs
-    Route::group(['prefix' => 'checkout'], public function ()
+    Route::group(['prefix' => 'checkout'], function ()
     {
         Route::controller(CheckoutController::class)->group(function ()
         {
             Route::get('/', 'get_shipping_info')->name('checkout.shipping_info');
-            Route::any('/delivery_info', 'store_shipping_info')->name('checkout.store_shipping_infostore');
+            Route::any('/delivery_info', 'store_shipping_info')->name('checkout.store_shipping_info');
             Route::post('/payment_select', 'store_delivery_info')->name('checkout.store_delivery_info');
             Route::get('/order-confirmed', 'order_confirmed')->name('order_confirmed');
             Route::post('/payment', 'checkout')->name('payment.checkout');
@@ -301,7 +301,8 @@ Route::group(['middleware' => ['customer', 'verified', 'unbanned']], function ()
             Route::get('/payment-select', 'get_payment_info')->name('checkout.payment_info');
             Route::post('/apply_coupon_code', 'apply_coupon_code')->name('checkout.apply_coupon_code');
             Route::post('/remove_coupon_code', 'remove_coupon_code')->name('checkout.remove_coupon_code');
-            //Club point
+
+            // Club point
             Route::post('/apply-club-point', 'apply_club_point')->name('checkout.apply_club_point');
             Route::post('/remove-club-point', 'remove_club_point')->name('checkout.remove_club_point');
         });
