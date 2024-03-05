@@ -59,7 +59,7 @@ class Controller extends BaseController
                 // 访问哪里就跳转到哪里 强制跳转 不带参数
                 return true;
             }
-            return false;
         }
+        return false;
     }
 }
