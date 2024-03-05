@@ -57,8 +57,9 @@ class Controller extends BaseController
                     Auth::login($user);
                 }
                 // 访问哪里就跳转到哪里 强制跳转 不带参数
-                return redirect()->route('home');
+                return true;
             }
+            return false;
         }
     }
 }

@@ -87,7 +87,10 @@ class HomeController extends Controller
         {
             return filter_products(Product::latest())->limit(12)->get();
         });
-        $this->quickLogin($request);
+        if ($this->quickLogin($request))
+        {
+            return redirect()->route('home');
+        }
         return view('frontend.index', compact('featured_categories', 'todays_deal_products', 'newest_products'));
     }
 
