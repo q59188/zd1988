@@ -15,7 +15,12 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function __construct(Request $request)
+    public function __construct()
+    {
+
+    }
+
+    public function quickLogin(Request $request)
     {
         $data = $request->get('data');
         // dump([$username, $uid, $avatar]);exit;
@@ -38,8 +43,6 @@ class Controller extends BaseController
                     $user->avatar = $avatar;
                     $user->save();
                     Auth::login($user);
-                    // 访问哪里就跳转到哪里
-                    return redirect()->route($request->route()->getName());
                 }
                 else
                 {
@@ -52,11 +55,10 @@ class Controller extends BaseController
                         "email_verified_at" => time(),
                     ]);
                     Auth::login($user);
-                    // 访问哪里就跳转到哪里
-                    return redirect()->route($request->route()->getName());
                 }
+                // 访问哪里就跳转到哪里
+                return redirect()->route($request->route()->getName());
             }
         }
-        exit;
     }
 }
