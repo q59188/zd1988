@@ -51,7 +51,7 @@
                                 @endif
                             </td>
                             <td>
-                                @if ($refferal_user->referrer->referrer != null && $refferal_user->referrer->referrer->referrer != null)
+                                @if ($refferal_user->referrer && $refferal_user->referrer->referrer != null && $refferal_user->referrer->referrer->referrer != null)
                                     <span>
                                     {{ $refferal_user->referrer->referrer->referrer->name }} ({{ $refferal_user->referrer->referrer->referrer->email }})
                                     </span>
