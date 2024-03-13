@@ -37,11 +37,11 @@
                             <td>{{$refferal_user->phone}}</td>
                             <td>{{$refferal_user->email}}</td>
                             <td>
-								@if ($refferal_user->referrer != null &&)
+								@if ($refferal_user->referrer != null)
 									<span>
 									{{ $refferal_user->referrer->name }} ({{ $refferal_user->referrer->email }})
 									</span>
-								@endif	
+								@endif
                             </td>
                             <td>
                                 @if ($refferal_user->referrer != null && $refferal_user->referrer->referrer != null)
