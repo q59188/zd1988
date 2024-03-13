@@ -204,7 +204,7 @@
                                 else
                                 {
                                   $r =  \App\Models\User::where('id',$uid)->first() ;
-                                 echo $r['name'];
+                                 echo $r ? $r['name'] : '';
 
                                 }
                             @endphp
