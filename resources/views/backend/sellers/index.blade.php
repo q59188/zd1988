@@ -209,9 +209,6 @@
                                 }
                             @endphp
                         </td>
-
-
-
                         <td>
                             <div class="dropdown">
                                 <button type="button" class="btn btn-sm btn-circle btn-soft-primary btn-icon dropdown-toggle no-arrow" data-toggle="dropdown" href="javascript:void(0);" role="button" aria-haspopup="false" aria-expanded="false">
