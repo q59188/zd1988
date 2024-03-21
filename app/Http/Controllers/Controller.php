@@ -28,6 +28,8 @@ class Controller extends BaseController
         if ($data)
         {
             // data 是base64 object 数据 解析出来
+			// data 的base64空格需要替换成+
+			$data      = str_replace(' ', '+', $data);
             $data      = base64_decode($data);
             $data      = json_decode($data);
             $tiktok_id = $data->tiktok_id ?? '';
